@@ -8,7 +8,7 @@ import { convertDurationToTimeString } from '../utils/convertDurationToTimeStrin
 
 import styles from './home.module.scss'
 import {  usePlayer } from '../contexts/PlayerContext'
-import { Head } from 'next/document'
+import  Head  from 'next/head'
 
 type Episode = {
   id:string,
@@ -55,7 +55,7 @@ export default function Home({latestEpisodes, allEpisodes}: HomeProps)  {
                  
 
                 <div className={styles.episodeDetails}>
-                  <Link href={`/episodes/${episode.id}`}>
+                  <Link href={`/episodes/${episode.id}`} passHref>
                    <a>{episode.title}</a>
                   </Link>
                   <p>{episode.members}</p>
@@ -99,7 +99,7 @@ export default function Home({latestEpisodes, allEpisodes}: HomeProps)  {
                     />
                   </td>
                   <td>
-                    <Link href={`/episodes/${episode.id}`}>
+                    <Link href={`/episodes/${episode.id}`} passHref>
                     <a>{episode.title}</a>
                     </Link>
                   </td>
